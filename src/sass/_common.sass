@@ -1,0 +1,107 @@
+html
+	font-size: calc(1vw + 0.5em)
+	
+	
+body
+	overflow: hidden
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Lato&display=swap')
+
+.section
+	padding: 2em
+	text-align: center
+
+.text
+	font-family: 'Cabin Sketch', cursive
+	margin-bottom: 3rem
+	font-size: 2rem
+	color: #3C01FB
+	background-color: #fff
+
+	background-color: rgba(60,1,252,0.7)
+	border-radius: 20px 20px 0 0
+	color: #fff
+
+.cards
+	position: relative
+	width: 100%
+	padding: 2em 0 0 2em
+	svg
+		position: absolute
+		top: 0%
+		left: 50%
+		width: 120%
+		transform: translate(-50%, -15%)
+		z-index: -1
+.card
+	position: absolute
+	width: 50%
+	height: 20rem
+	border: 1px solid green
+	border-radius: 10px
+	background-color: #fff
+	transform-origin: left
+	left: 1%
+	transition: transform 1s
+	box-shadow: 2px 2px 14px 2px #3C01FB
+	font-family: 'Lato', sans-serif
+	color: #fff
+	background-size: cover
+	background-position: center center
+	&::before
+		content: 'Hover'
+		display: block
+		position: absolute
+		transform: rotate(-90deg) translate(-50%, -50%)
+		border-radius: 5px 5px 0 0 
+		transform-origin: left
+		top: 50%
+		background-color: #A01582
+		padding: 0 1em
+		transition: transform 0.5s
+
+.card:nth-of-type(1)
+	transform: scale(0.8)
+.card:nth-of-type(2)
+	transform: scale(0.85) translate(8%)
+	
+.card:nth-of-type(3)
+	transform: scale(0.9) translate(16%)
+	&::before
+		display: none
+	
+.card:nth-of-type(4)
+	transform: scale(0.9) translate(120%)
+	&::before
+		display: none
+
+.card:hover
+	&::before
+		transform: rotate(-90deg) translate(-50%, -50%) scale(0)
+		transition: transform 0.5s
+		z-index: -1
+	~ .card
+		transform: scale(0.9) translate(120%)
+		transition: transform 1s, opacity 0s 1s
+		opacity: 0
+		&::before
+			display: none
+	+ .card
+		z-index: 1
+		opacity: 1
+		
+
+img
+	position: absolute
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	
+h3
+	position: absolute
+	bottom: 10px
+	text-align: center
+	width: 100%
+	background: linear-gradient(90deg, rgba(59,0,248,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
+	font-size: 1.5em
